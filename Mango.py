@@ -31,34 +31,38 @@ def generatePassword():
     if userInput.get() == "":
         completedPassword.insert(1.0,"Please enter a number")
     else:
-        numberOfCharacters = int(userInput.get())
-        if numberOfCharacters > 7 and numberOfCharacters < 33:
-            password = [None] * numberOfCharacters
-            for index, values in enumerate(password):
-                passwordReceived = returnNumber() #65 and 122
-                passwordChar = chr(passwordReceived)
-                password[index] = passwordChar
-            generatedPassword = ''.join(password)
-            print("Original password:",generatedPassword)
-            asciiString = "/0123456789:;<=>?@abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ[]\^_`{|}~"
-            countedInt = 0
-            for values in userExcludeInput.get():
-                if values in asciiString:
-                    countedInt += 1
-                    print("Counted int is:",countedInt)
-            if countedInt == 80:
-                generatedPassword = "nice try"
-            else:
-                for values in generatedPassword:
-                    if values in userExcludeInput.get():
-                        newlyReplaced = chr(returnNumber())
-                        while newlyReplaced in userExcludeInput.get():
+        try:
+
+            numberOfCharacters = int(userInput.get())
+            if numberOfCharacters > 7 and numberOfCharacters < 33:
+                password = [None] * numberOfCharacters
+                for index, values in enumerate(password):
+                    passwordReceived = returnNumber() #65 and 122
+                    passwordChar = chr(passwordReceived)
+                    password[index] = passwordChar
+                generatedPassword = ''.join(password)
+                print("Original password:",generatedPassword)
+                asciiString = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@[]^_`{|}~:;<=>?/\\"
+                countedInt = 0
+                for values in userExcludeInput.get():
+                    if values in asciiString:
+                        countedInt += 1
+                        print("Counted int is:",countedInt)
+                if countedInt == 80:
+                    generatedPassword = "nice try"
+                else:
+                    for values in generatedPassword:
+                        if values in userExcludeInput.get():
                             newlyReplaced = chr(returnNumber())
-                        print("Replaced", values,"with",newlyReplaced)
-                        generatedPassword = generatedPassword.replace(values, newlyReplaced)
-            completedPassword.insert(1.0,generatedPassword)
-        else:
-            completedPassword.insert(1.0,'Please enter a valid number 8-32')
+                            while newlyReplaced in userExcludeInput.get():
+                                newlyReplaced = chr(returnNumber())
+                            print("Replaced", values,"with",newlyReplaced)
+                            generatedPassword = generatedPassword.replace(values, newlyReplaced)
+                completedPassword.insert(1.0,generatedPassword)
+            else:
+                completedPassword.insert(1.0,'Please enter a valid number 8-32')
+        except ValueError:
+            completedPassword.insert(1.0,'Please enter only integer values.')
     completedPassword.configure(state='disabled')
 
 

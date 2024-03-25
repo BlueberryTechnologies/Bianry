@@ -18,3 +18,8 @@
 #### Version 1.2.1
 
 - Added more characters allowed in the passwords
+
+#### Version 1.2.2
+
+- Updated readme
+- You can now only enter integers in the character limits field
