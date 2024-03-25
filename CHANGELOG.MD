@@ -14,3 +14,7 @@
 
 - Added letting the user pick certain characters to exclude in the final generated password
 - Instead of using random.randint for generation the program now uses time.time() for a more random seed
+
+#### Version 1.2.1
+
+- Added more characters allowed in the passwords

@@ -19,7 +19,7 @@ This will use Python's random number generator as well as ASCII to generate a ra
 def returnNumber():
     currTime = None
     value = 0
-    while value >= 122 or value <= 65:
+    while value >= 126 or value <= 47:
         currTime = str(time.time()).replace('.', '')
         value = int(currTime[-5:]) % 250
     return value
@@ -40,13 +40,22 @@ def generatePassword():
                 password[index] = passwordChar
             generatedPassword = ''.join(password)
             print("Original password:",generatedPassword)
-            for values in generatedPassword:
-                if values in userExcludeInput.get():
-                    newlyReplaced = chr(returnNumber())
-                    while newlyReplaced in userExcludeInput.get():
+            asciiString = "/0123456789:;<=>?@abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ[]\^_`{|}~"
+            countedInt = 0
+            for values in userExcludeInput.get():
+                if values in asciiString:
+                    countedInt += 1
+                    print("Counted int is:",countedInt)
+            if countedInt == 80:
+                generatedPassword = "nice try"
+            else:
+                for values in generatedPassword:
+                    if values in userExcludeInput.get():
                         newlyReplaced = chr(returnNumber())
-                    print("Replaced", values,"with",newlyReplaced)
-                    generatedPassword = generatedPassword.replace(values, newlyReplaced)
+                        while newlyReplaced in userExcludeInput.get():
+                            newlyReplaced = chr(returnNumber())
+                        print("Replaced", values,"with",newlyReplaced)
+                        generatedPassword = generatedPassword.replace(values, newlyReplaced)
             completedPassword.insert(1.0,generatedPassword)
         else:
             completedPassword.insert(1.0,'Please enter a valid number 8-32')
