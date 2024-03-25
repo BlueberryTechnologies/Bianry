@@ -11,19 +11,18 @@ Blueberry Technologies (blueberry.dev)
 Maintained and created by:
 gh/rileyrichard
 
+With help from all at Blueberry Technologies
+
 This will use Python's random number generator as well as ASCII to generate a random password
 '''
 
 def returnNumber():
-    replacedValue = userExcludeInput.get().replace(',','')
-    currentTimeString = str(time.time()) # Into a string
-    if '.' in currentTimeString:
-        currentTimeString=currentTimeString.replace('.','')
-    last3 = int(currentTimeString[-5:]) % 250
-    if last3 >= 122 or last3 <= 65:
-        returnNumber()
-    else:
-        return last3
+    currTime = None
+    value = 0
+    while value >= 122 or value <= 65:
+        currTime = str(time.time()).replace('.', '')
+        value = int(currTime[-5:]) % 250
+    return value
 
 
 def generatePassword():
@@ -37,10 +36,18 @@ def generatePassword():
             password = [None] * numberOfCharacters
             for index, values in enumerate(password):
                 passwordReceived = returnNumber() #65 and 122
-                print(passwordReceived,"is received")
                 passwordChar = chr(passwordReceived)
                 password[index] = passwordChar
-            completedPassword.insert(1.0,''.join(password))
+            generatedPassword = ''.join(password)
+            print("Original password:",generatedPassword)
+            for values in generatedPassword:
+                if values in userExcludeInput.get():
+                    newlyReplaced = chr(returnNumber())
+                    while newlyReplaced in userExcludeInput.get():
+                        newlyReplaced = chr(returnNumber())
+                    print("Replaced", values,"with",newlyReplaced)
+                    generatedPassword = generatedPassword.replace(values, newlyReplaced)
+            completedPassword.insert(1.0,generatedPassword)
         else:
             completedPassword.insert(1.0,'Please enter a valid number 8-32')
     completedPassword.configure(state='disabled')
@@ -58,7 +65,7 @@ Labels, Text and Buttons
 '''
 characterLimit = Label(rootWindow, text="Character Limit (8-32 Chars)")
 userInputEntry = Entry(rootWindow, textvariable=userInput, font=('arial',10))
-characterExclude = Label(rootWindow, text="Characters to exclude (CSV)")
+characterExclude = Label(rootWindow, text="Characters to exclude")
 userExcludeEntry = Entry(rootWindow, textvariable=userExcludeInput, font=('arial',10))
 refreshButton = Button(rootWindow, text="Refresh Password",command=generatePassword)
 completedPassword = Text(rootWindow, height=1,width=32)
