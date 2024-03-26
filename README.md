@@ -1,10 +1,18 @@
 # Mango
-
----
-
 A simple, easy to use password generator written in Python
 
-## Geting Started
+![License](https://img.shields.io/github/license/BlueberryTechnologies/Mango)
+![Version](https://img.shields.io/github/v/release/BlueberryTechnologies/Mango)
+![Downloads](https://img.shields.io/github/downloads/BlueberryTechnologies/Mango/total)
+![Commits](https://img.shields.io/github/commit-activity/m/BlueberryTechnologies/Mango)
+
+## Support
+
+[![Support me on Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Dblueberrytechnologies%26type%3Dpatrons&style=flat)](https://patreon.com/blueberrytechnologies)
+
+
+
+## Getting Started
 
 ### Character Limits
 
