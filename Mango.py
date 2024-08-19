@@ -16,23 +16,27 @@ With help from all at Blueberry Technologies
 This will use Python's random number generator as well as ASCII to generate a random password
 '''
 
+
+
 def returnNumber():
     currTime = None
     value = 0
     while value >= 126 or value <= 47:
-        currTime = str(time.time()).replace('.', '')
+        currTime = str(time.time_ns()).replace('0', '')
         value = int(currTime[-5:]) % 250
+        time_nano=time.time_ns()
+        print(currTime)
+        time.sleep(.001)
     return value
 
 
 def generatePassword():
     completedPassword.configure(state='normal')
-    completedPassword.delete(1.0,'end')
+    
     if userInput.get() == "":
         completedPassword.insert(1.0,"Please enter a number")
     else:
         try:
-
             numberOfCharacters = int(userInput.get())
             if numberOfCharacters > 7 and numberOfCharacters < 33:
                 password = [None] * numberOfCharacters
@@ -40,6 +44,7 @@ def generatePassword():
                     passwordReceived = returnNumber() #65 and 122
                     passwordChar = chr(passwordReceived)
                     password[index] = passwordChar
+                    print("Index is" + password[index])
                 generatedPassword = ''.join(password)
                 print("Original password:",generatedPassword)
                 asciiString = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@[]^_`{|}~:;<=>?/\\"
@@ -58,6 +63,7 @@ def generatePassword():
                                 newlyReplaced = chr(returnNumber())
                             print("Replaced", values,"with",newlyReplaced)
                             generatedPassword = generatedPassword.replace(values, newlyReplaced)
+                completedPassword.delete(1.0,'end')
                 completedPassword.insert(1.0,generatedPassword)
             else:
                 completedPassword.insert(1.0,'Please enter a valid number 8-32')
