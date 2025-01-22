@@ -24,24 +24,18 @@ import time
 '''
 generateAsciiArray
 
-Generates random numbers based off of the time seed then converts to the number's ascii value then places in an array.
-This function generates 32 characters by default.
+Generates random numbers based off of the time seed then converts to the number's ascii value.
 '''
-def generateAsciiArray():
+def generateAsciiChar():
     currTime = None
     valueOfTime = 0
-    passwordArray = []
-    password = ""
-    for i in range(32):
-        while valueOfTime >= 126 or valueOfTime <= 47:
-            currTime = str(time.time_ns()).replace('0', '')
-            valueOfTime = int(currTime[-5:]) % 250
-        passwordArray.append(chr(valueOfTime))
-        valueOfTime = 0 
+    asciiValueOfTime = ""
+    while valueOfTime >= 126 or valueOfTime <= 47:
+        currTime = str(time.time_ns()).replace('0', '')
+        valueOfTime = int(currTime[-5:]) % 250
+        asciiValueOfTime = chr(valueOfTime)    
         time.sleep(.001)
-    return passwordArray 
-
-
+    return asciiValueOfTime
 
 '''
 getGeneratedPassword
@@ -49,12 +43,15 @@ getGeneratedPassword
 Generates a string based off of the array of chars generated in generateAsciiArray.
 This also takes a specifiedLength variable into account as the user specifies which length they would like.
 '''
-def getGeneratedPassword(specifiedLength):
-    if specifiedLength >=8 and specifiedLength<= 32:
-        asciiArray = generateAsciiArray()
-        resizedPasswordString = ""
+def getGeneratedPassword(specifiedLength, excludedCharacters):
+    asciiArray = []
+    if specifiedLength >=8 and specifiedLength<= 32: # Within bounds
         for i in range(specifiedLength):
-            resizedPasswordString += str(asciiArray[i])
-        return resizedPasswordString
+            asciiArray.append(generateAsciiChar())
+            for i in range(len(asciiArray)):
+                while asciiArray[i] in excludedCharacters:
+                    asciiArray[i] = generateAsciiChar()
+        asciiString = ''.join(asciiArray)
+        return asciiString
     else:
         return -1

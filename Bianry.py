@@ -28,9 +28,9 @@ asciiString = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@[]
 customtkinter.set_appearance_mode("System")
 customtkinter.set_default_color_theme("blue")
 
-app = customtkinter.CTk()
-app.geometry("800x480")
-app.title("Bianry")
+binary = customtkinter.CTk()
+binary.geometry("800x480")
+binary.title("Bianry")
 
 userGeneratedPassword = ""
 
@@ -42,14 +42,16 @@ def generatePassword():
     global userGeneratedPassword
     try:
         userDefinedLength = int(userEntry.get())
+        userDefinedExclusion = exclusionEntry.get()
+        userGeneratedPassword = Generate.getGeneratedPassword(userDefinedLength, userDefinedExclusion)
+        if userGeneratedPassword == -1:
+            setWarning()
+        else:
+            warnings.configure(text="")
+            passwordEntry.insert(0, userGeneratedPassword)
     except ValueError:
         setWarning()
-    userGeneratedPassword = Generate.getGeneratedPassword(userDefinedLength)
-    if userGeneratedPassword == -1:
-        setWarning()
-    else:
-        warnings.configure(text="")
-        passwordEntry.insert(0, userGeneratedPassword)
+    
 
 def copyToClipboard():
     if userGeneratedPassword is not None:
@@ -59,12 +61,12 @@ def copyToClipboard():
         print("There is nothing to copy")
 
 
-warnings = customtkinter.CTkLabel(app, text="", width=200)
-userEntry = customtkinter.CTkEntry(app, width=200, placeholder_text="Enter length of password 8-32")
-exclusionEntry = customtkinter.CTkEntry(app, width=200, placeholder_text="Enter excluded characters")
-submitButton = customtkinter.CTkButton(master=app, width=200, text="Submit", command=generatePassword)
-copyButton = customtkinter.CTkButton(master=app, width=200, text="Copy to Clipboard", command=copyToClipboard)
-passwordEntry = customtkinter.CTkEntry(app, width=200)
+warnings = customtkinter.CTkLabel(binary, text="", width=200)
+userEntry = customtkinter.CTkEntry(binary, width=200, placeholder_text="Enter length of password 8-32")
+exclusionEntry = customtkinter.CTkEntry(binary, width=200, placeholder_text="Enter excluded characters")
+submitButton = customtkinter.CTkButton(master=binary, width=200, text="Submit", command=generatePassword)
+copyButton = customtkinter.CTkButton(master=binary, width=200, text="Copy to Clipboard", command=copyToClipboard)
+passwordEntry = customtkinter.CTkEntry(binary, width=200)
 warnings.place(relx=0.5, rely=0.1, anchor=customtkinter.CENTER)
 userEntry.place(relx=0.5, rely=0.2, anchor=customtkinter.CENTER)
 exclusionEntry.place(relx=0.5, rely=0.3, anchor=customtkinter.CENTER)
@@ -72,5 +74,4 @@ submitButton.place(relx=0.5, rely=0.5, anchor=customtkinter.CENTER)
 copyButton.place(relx=0.5, rely=0.6, anchor=customtkinter.CENTER)
 passwordEntry.place(relx=0.5,rely=0.7, anchor=customtkinter.CENTER)
 
-
-app.mainloop()
+binary.mainloop()
