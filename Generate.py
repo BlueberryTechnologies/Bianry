@@ -10,6 +10,7 @@ def generateAsciiArray(): # Returns a integer based on the current user's time t
             valueOfTime = int(currTime[-5:]) % 250 # Takes the last 5 digits of time, then mods by 250
         passwordArray.append(chr(valueOfTime)) # Appends the current value of generated time to the end of the array
         valueOfTime = 0 # Resets the value of time to 0
+        time.sleep(.001)
     return passwordArray # Returns the final password
 
 def getGeneratedPassword(specifiedLength):
