@@ -1,78 +1,57 @@
-import Generate
-#import Embed
-
-# To render the UI tkinter is needed
-import tkinter
-from tkinter import *
-from tkinter.ttk import *
-
-
 '''
-A password generator for stronger passwords written in Python developed by
-Blueberry Technologies (blueberry.dev)
+______ _                        
+| ___ (_)                       
+| |_/ /_  __ _ _ __  _ __ _   _ 
+| ___ \ |/ _` | '_ \| '__| | | |
+| |_/ / | (_| | | | | |  | |_| |
+\____/|_|\__,_|_| |_|_|   \__, |
+                           __/ |
+                          |___/ 
+
+A password generator for much stronger passwords written in Python developed by
+Blueberry Technologies (https://blueberry.dev)
+
+Based off of the forked project Mango (https://blueberry.dev/projects/mango)
 
 Maintained and created by:
 gh/rileyrichard
 gh/tehsavi0r
-
-With help from all at Blueberry Technologies
-
 '''
 
-def getGeneratedPassword():
-    completedPassword.configure(state='normal')
-    
-    if userInput.get() == "":
-        completedPassword.insert(1.0,"Please enter a number")
+import Generate
+import customtkinter # https://github.com/TomSchimansky/CustomTkinter
+import pyperclip
+
+
+asciiString = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@[]^_`{|}~:;<=>?/\\"
+
+customtkinter.set_appearance_mode("System")
+customtkinter.set_default_color_theme("blue")
+
+app = customtkinter.CTk()
+app.geometry("400x240")
+userGeneratedPassword=""
+
+def generatePassword():
+    userDefinedLength = int(userEntry.get())
+    userGeneratedPassword = Generate.getGeneratedPassword(userDefinedLength)
+    passwordEntry.configure(text=userGeneratedPassword)
+    print(userGeneratedPassword)
+
+def copyToClipboard():
+    if userGeneratedPassword is not None:
+        pyperclip.copy(userGeneratedPassword)
     else:
-        try:
-            numberOfCharacters = int(userInput.get())
-            if numberOfCharacters >= 8 and numberOfCharacters <= 32:
-                asciiString = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@[]^_`{|}~:;<=>?/\\"
-                countedInt = 0
-                for values in userExcludeInput.get():
-                    if values in asciiString:
-                        countedInt += 1
-                        print("Counted int is:",countedInt)
-                if countedInt == 80:
-                    userPassword = "nice try"
-                else:
-                    userPassword = ""
-                    for i in range (numberOfCharacters):
-                        userPassword = "".join(Generate.generateAsciiArray(i))
-                completedPassword.delete(1.0,'end')
-                completedPassword.insert(1.0,userPassword)
-            else:
-                completedPassword.insert(1.0,'Please enter a valid number 8-32')
-        except ValueError:
-            completedPassword.insert(1.0,'Please enter only integer values.')
-    completedPassword.configure(state='disabled')
+        print("There is nothing to copy")
+
+userEntry = customtkinter.CTkEntry(app, placeholder_text="Enter length of password 8-32")
+submitEntry = customtkinter.CTkButton(master=app, text="Submit", command=generatePassword)
+passwordEntry = customtkinter.CTkLabel(app, text="")
+copyButton = customtkinter.CTkButton(master=app, text="Copy to Clipboard", command=copyToClipboard)
+userEntry.place(relx=0.5, rely=0.2, anchor=customtkinter.CENTER)
+passwordEntry.place(relx=0.5,rely=0.3, anchor=customtkinter.CENTER)
+submitEntry.place(relx=0.5, rely=0.5, anchor=customtkinter.CENTER)
+copyButton.place(relx=0.5, rely=0.6, anchor=customtkinter.CENTER)
 
 
-
-rootWindow = tkinter.Tk() # Root level window
-rootWindow.geometry("275x250") # Root Window dimensions
-rootWindow.title("Bianry") # Sets the title of the window
-
-userInput = tkinter.StringVar() # Sets the user input
-userExcludeInput = tkinter.StringVar()
-
-'''
-Labels, Text and Buttons
-'''
-characterLimit = Label(rootWindow, text="Character Limit (8-32 Chars)")
-userInputEntry = Entry(rootWindow, textvariable=userInput, font=('arial',10))
-characterExclude = Label(rootWindow, text="Characters to exclude")
-userExcludeEntry = Entry(rootWindow, textvariable=userExcludeInput, font=('arial',10))
-refreshButton = Button(rootWindow, text="Refresh Password",command=getGeneratedPassword)
-completedPassword = Text(rootWindow, height=1,width=32)
-
-characterLimit.grid(row=1,column=0, sticky='w')
-userInputEntry.grid(row=2,column=0, sticky='w')
-characterExclude.grid(row=3,column=0, sticky='w')
-userExcludeEntry.grid(row=4, column=0, sticky='w')
-refreshButton.grid(row=5,column=0, sticky='w')
-completedPassword.grid(row=6,column=0, sticky='w')
-
-# The main loop for displaying the tkinter window
-rootWindow.mainloop()
+app.mainloop()
