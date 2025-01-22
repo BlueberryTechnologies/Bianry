@@ -10,7 +10,7 @@ def text_to_binary(text):
     #takes each char in the message and turns it into its 8 bit binary counterpart
     return ''.join(format(ord(char), '08b') for char in text)
 
-# Function hides a message inside of an image using steganography
+# Function hides a message inside of an image using stenography
 def encrypt_image(input_image, output_path, text, key=5):        
     img = Image.open(input_image).convert("RGB") #make sure the image is in RGB mode
     pixels = img.load()
