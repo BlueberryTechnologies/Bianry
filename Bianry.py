@@ -34,8 +34,6 @@ binary.title("Bianry")
 
 userGeneratedPassword = ""
 
-def setWarning():
-    warnings.configure(text="Please enter a number that is between 8 and 32.")
 
 def generatePassword():
     passwordEntry.delete(0, 32)
@@ -45,12 +43,12 @@ def generatePassword():
         userDefinedExclusion = exclusionEntry.get()
         userGeneratedPassword = Generate.getGeneratedPassword(userDefinedLength, userDefinedExclusion)
         if userGeneratedPassword == -1:
-            setWarning()
+            warnings.configure(text="Please enter a number that is between 8 and 32.")
         else:
             warnings.configure(text="")
             passwordEntry.insert(0, userGeneratedPassword)
     except ValueError:
-        setWarning()
+        warnings.configure(text="Please enter a number that is between 8 and 32.")
     
 
 def copyToClipboard():
@@ -67,6 +65,8 @@ exclusionEntry = customtkinter.CTkEntry(binary, width=200, placeholder_text="Ent
 submitButton = customtkinter.CTkButton(master=binary, width=200, text="Submit", command=generatePassword)
 copyButton = customtkinter.CTkButton(master=binary, width=200, text="Copy to Clipboard", command=copyToClipboard)
 passwordEntry = customtkinter.CTkEntry(binary, width=200)
+
+
 warnings.place(relx=0.5, rely=0.1, anchor=customtkinter.CENTER)
 userEntry.place(relx=0.5, rely=0.2, anchor=customtkinter.CENTER)
 exclusionEntry.place(relx=0.5, rely=0.3, anchor=customtkinter.CENTER)

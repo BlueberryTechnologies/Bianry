@@ -26,6 +26,7 @@ generateAsciiArray
 
 Generates random numbers based off of the time seed then converts to the number's ascii value.
 '''
+
 def generateAsciiChar():
     currTime = None
     valueOfTime = 0
