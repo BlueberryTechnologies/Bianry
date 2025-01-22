@@ -1,16 +1,15 @@
-# Mango
+# Bianry
+
 A simple, easy to use password generator written in Python
 
-![License](https://img.shields.io/github/license/BlueberryTechnologies/Mango)
-![Version](https://img.shields.io/github/v/release/BlueberryTechnologies/Mango)
-![Downloads](https://img.shields.io/github/downloads/BlueberryTechnologies/Mango/total)
-![Commits](https://img.shields.io/github/commit-activity/m/BlueberryTechnologies/Mango)
+![License](https://img.shields.io/github/license/BlueberryTechnologies/Bianry)
+![Version](https://img.shields.io/github/v/release/BlueberryTechnologies/Bianry)
+![Downloads](https://img.shields.io/github/downloads/BlueberryTechnologies/Bianry/total)
+![Commits](https://img.shields.io/github/commit-activity/m/BlueberryTechnologies/Bianry)
 
 ## Support
 
-[![Support me on Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Dblueberrytechnologies%26type%3Dpatrons&style=flat)](https://patreon.com/blueberrytechnologies)
-
-
+[![Support us on Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Dblueberrytechnologies%26type%3Dpatrons&style=flat)](https://patreon.com/blueberrytechnologies)
 
 ## Getting Started
 
@@ -39,4 +38,4 @@ The program will output the password in a text field that will allow you to copy
 ### License
 
 This software uses the GPL-3.0 license.
-You can read more about it [here](https://github.com/BlueberryTechnologies/Mango?tab=GPL-3.0-1-ov-file#).
+You can read more about it [here](https://github.com/BlueberryTechnologies/Bianry?tab=GPL-3.0-1-ov-file#).
