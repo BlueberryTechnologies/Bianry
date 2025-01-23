@@ -2,16 +2,16 @@
 
 
 a = Analysis(
-    ['/media/joystick/TwoDrive/System Folders/Programming/Bianry/Bianry.py', '/media/joystick/TwoDrive/System Folders/Programming/Bianry/Generate.py', '/media/joystick/TwoDrive/System Folders/Programming/Bianry/Embed.py'],
+    ['/media/joystick/TwoDrive/System Folders/Programming/Bianry/Bianry.py'],
     pathex=[],
     binaries=[],
     datas=[('/media/joystick/TwoDrive/System Folders/Programming/Bianry/lib/python3.12/site-packages/customtkinter', 'customtkinter/')],
-    hiddenimports=[],
+    hiddenimports=['pyperclip'],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
     excludes=[],
-    noarchive=False,
+    noarchive=True,
     optimize=0,
 )
 pyz = PYZ(a.pure)
@@ -19,10 +19,10 @@ pyz = PYZ(a.pure)
 exe = EXE(
     pyz,
     a.scripts,
-    [],
+    [('v', None, 'OPTION')],
     exclude_binaries=True,
     name='BianryPackage',
-    debug=False,
+    debug=True,
     bootloader_ignore_signals=False,
     strip=False,
     upx=True,

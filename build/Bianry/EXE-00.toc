@@ -1,7 +1,7 @@
 ('/media/joystick/TwoDrive/System '
  'Folders/Programming/Bianry/build/Bianry/Bianry',
  False,
- False,
+ True,
  True,
  None,
  None,
@@ -15,7 +15,8 @@
  None,
  '/media/joystick/TwoDrive/System '
  'Folders/Programming/Bianry/build/Bianry/Bianry.pkg',
- [('pyi-contents-directory _internal', '', 'OPTION'),
+ [('v', None, 'OPTION'),
+  ('pyi-contents-directory _internal', '', 'OPTION'),
   ('PYZ-00.pyz',
    '/media/joystick/TwoDrive/System '
    'Folders/Programming/Bianry/build/Bianry/PYZ-00.pyz',
@@ -70,9 +71,9 @@
  [],
  False,
  False,
- 1737597749,
- [('run',
+ 1737599790,
+ [('run_d',
    '/media/joystick/TwoDrive/System '
-   'Folders/Programming/Bianry/lib/python3.12/site-packages/PyInstaller/bootloader/Linux-64bit-intel/run',
+   'Folders/Programming/Bianry/lib/python3.12/site-packages/PyInstaller/bootloader/Linux-64bit-intel/run_d',
    'EXECUTABLE')],
  '/lib/x86_64-linux-gnu/libpython3.12.so.1.0')

@@ -9,7 +9,8 @@
   'PYZ': False,
   'SPLASH': True,
   'SYMLINK': False},
- [('pyi-contents-directory _internal', '', 'OPTION'),
+ [('v', None, 'OPTION'),
+  ('pyi-contents-directory _internal', '', 'OPTION'),
   ('PYZ-00.pyz',
    '/media/joystick/TwoDrive/System '
    'Folders/Programming/Bianry/build/Bianry/PYZ-00.pyz',
