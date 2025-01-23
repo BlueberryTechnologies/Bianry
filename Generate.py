@@ -45,6 +45,15 @@ Generates a string based off of the array of chars generated in generateAsciiArr
 This also takes a specifiedLength variable into account as the user specifies which length they would like.
 '''
 def getGeneratedPassword(specifiedLength, excludedCharacters):
+    asciiString = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@[]^_`{|}~:;<=>?/\\"
+    niceTryCount = 0
+    for i in range(len(asciiString)):
+        if asciiString[i] in excludedCharacters:
+            niceTryCount += 1
+    
+    if niceTryCount == 80:
+        return "Nice Try"
+
     asciiArray = []
     if specifiedLength >=8 and specifiedLength<= 32: # Within bounds
         for i in range(specifiedLength):
