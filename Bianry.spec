@@ -2,10 +2,10 @@
 
 
 a = Analysis(
-    ['Bianry.py'],
+    ['/media/joystick/TwoDrive/System Folders/Programming/Bianry/Bianry.py'],
     pathex=[],
     binaries=[],
-    datas=[],
+    datas=[('/media/joystick/TwoDrive/System Folders/Programming/Bianry/lib/python3.12/site-packages/customtkinter', 'customtkinter')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
@@ -26,7 +26,7 @@ exe = EXE(
     bootloader_ignore_signals=False,
     strip=False,
     upx=True,
-    console=True,
+    console=False,
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,

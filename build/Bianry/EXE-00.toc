@@ -1,6 +1,6 @@
 ('/media/joystick/TwoDrive/System '
  'Folders/Programming/Bianry/build/Bianry/Bianry',
- True,
+ False,
  False,
  True,
  None,
@@ -70,7 +70,7 @@
  [],
  False,
  False,
- 1737597221,
+ 1737597749,
  [('run',
    '/media/joystick/TwoDrive/System '
    'Folders/Programming/Bianry/lib/python3.12/site-packages/PyInstaller/bootloader/Linux-64bit-intel/run',
