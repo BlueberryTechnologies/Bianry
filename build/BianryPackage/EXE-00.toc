@@ -1,0 +1,84 @@
+('/media/joystick/TwoDrive/System '
+ 'Folders/Programming/Bianry/build/BianryPackage/BianryPackage',
+ False,
+ False,
+ True,
+ None,
+ None,
+ False,
+ False,
+ None,
+ True,
+ False,
+ None,
+ None,
+ None,
+ '/media/joystick/TwoDrive/System '
+ 'Folders/Programming/Bianry/build/BianryPackage/BianryPackage.pkg',
+ [('pyi-contents-directory _internal', '', 'OPTION'),
+  ('PYZ-00.pyz',
+   '/media/joystick/TwoDrive/System '
+   'Folders/Programming/Bianry/build/BianryPackage/PYZ-00.pyz',
+   'PYZ'),
+  ('struct',
+   '/media/joystick/TwoDrive/System '
+   'Folders/Programming/Bianry/build/BianryPackage/localpycs/struct.pyc',
+   'PYMODULE'),
+  ('pyimod01_archive',
+   '/media/joystick/TwoDrive/System '
+   'Folders/Programming/Bianry/build/BianryPackage/localpycs/pyimod01_archive.pyc',
+   'PYMODULE'),
+  ('pyimod02_importers',
+   '/media/joystick/TwoDrive/System '
+   'Folders/Programming/Bianry/build/BianryPackage/localpycs/pyimod02_importers.pyc',
+   'PYMODULE'),
+  ('pyimod03_ctypes',
+   '/media/joystick/TwoDrive/System '
+   'Folders/Programming/Bianry/build/BianryPackage/localpycs/pyimod03_ctypes.pyc',
+   'PYMODULE'),
+  ('pyiboot01_bootstrap',
+   '/media/joystick/TwoDrive/System '
+   'Folders/Programming/Bianry/lib/python3.12/site-packages/PyInstaller/loader/pyiboot01_bootstrap.py',
+   'PYSOURCE'),
+  ('pyi_rth_inspect',
+   '/media/joystick/TwoDrive/System '
+   'Folders/Programming/Bianry/lib/python3.12/site-packages/PyInstaller/hooks/rthooks/pyi_rth_inspect.py',
+   'PYSOURCE'),
+  ('pyi_rth_pkgres',
+   '/media/joystick/TwoDrive/System '
+   'Folders/Programming/Bianry/lib/python3.12/site-packages/PyInstaller/hooks/rthooks/pyi_rth_pkgres.py',
+   'PYSOURCE'),
+  ('pyi_rth_setuptools',
+   '/media/joystick/TwoDrive/System '
+   'Folders/Programming/Bianry/lib/python3.12/site-packages/PyInstaller/hooks/rthooks/pyi_rth_setuptools.py',
+   'PYSOURCE'),
+  ('pyi_rth_multiprocessing',
+   '/media/joystick/TwoDrive/System '
+   'Folders/Programming/Bianry/lib/python3.12/site-packages/PyInstaller/hooks/rthooks/pyi_rth_multiprocessing.py',
+   'PYSOURCE'),
+  ('pyi_rth_pkgutil',
+   '/media/joystick/TwoDrive/System '
+   'Folders/Programming/Bianry/lib/python3.12/site-packages/PyInstaller/hooks/rthooks/pyi_rth_pkgutil.py',
+   'PYSOURCE'),
+  ('pyi_rth__tkinter',
+   '/media/joystick/TwoDrive/System '
+   'Folders/Programming/Bianry/lib/python3.12/site-packages/PyInstaller/hooks/rthooks/pyi_rth__tkinter.py',
+   'PYSOURCE'),
+  ('Bianry',
+   '/media/joystick/TwoDrive/System Folders/Programming/Bianry/Bianry.py',
+   'PYSOURCE'),
+  ('Generate',
+   '/media/joystick/TwoDrive/System Folders/Programming/Bianry/Generate.py',
+   'PYSOURCE'),
+  ('Embed',
+   '/media/joystick/TwoDrive/System Folders/Programming/Bianry/Embed.py',
+   'PYSOURCE')],
+ [],
+ False,
+ False,
+ 1737598140,
+ [('run',
+   '/media/joystick/TwoDrive/System '
+   'Folders/Programming/Bianry/lib/python3.12/site-packages/PyInstaller/bootloader/Linux-64bit-intel/run',
+   'EXECUTABLE')],
+ '/lib/x86_64-linux-gnu/libpython3.12.so.1.0')
